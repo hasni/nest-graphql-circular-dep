@@ -18,13 +18,13 @@ export class PostsResolver {
     private readonly postsService: PostsService,
   ) {}
 
-  @Query(() => [Post], { name: 'posts' })
-  findAll() {
+  @Query(() => [Post])
+  posts() {
     return this.postsService.findAll({});
   }
 
-  @Query(() => Post, { name: 'post' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  @Query(() => Post)
+  post(@Args('id', { type: () => Int }) id: number) {
     return this.postsService.find({ id });
   }
 

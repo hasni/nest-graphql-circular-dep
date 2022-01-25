@@ -3,23 +3,23 @@
 # ------------------------------------------------------
 
 type Post {
-  id: Int!
-  title: String!
-  content: String
-  published: Boolean!
   author: User!
-}
-
-type User {
+  content: String
   id: Int!
-  name: String!
-  email: String!
-  posts: [Post!]!
+  published: Boolean!
+  title: String!
 }
 
 type Query {
-  users: [User!]!
-  user(id: Int!): User!
-  posts: [Post!]!
   post(id: Int!): Post!
+  posts: [Post!]!
+  user(id: Int!): User!
+  users: [User!]!
+}
+
+type User {
+  email: String!
+  id: Int!
+  name: String!
+  posts: [Post!]!
 }

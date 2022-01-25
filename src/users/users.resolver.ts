@@ -18,13 +18,13 @@ export class UsersResolver {
     private readonly usersService: UsersService,
   ) {}
 
-  @Query(() => [User], { name: 'users' })
-  findAll() {
+  @Query(() => [User])
+  users() {
     return this.usersService.findAll({});
   }
 
-  @Query(() => User, { name: 'user' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  @Query(() => User)
+  user(@Args('id', { type: () => Int }) id: number) {
     return this.usersService.find({ id });
   }
 
